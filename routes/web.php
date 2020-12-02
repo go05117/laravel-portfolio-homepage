@@ -17,9 +17,9 @@ use Illuminate\Http\Response;
 |
 */
 
-Route::get('/admin', function () {
-    return view('welcome');
-});
+//Route::get('/', function () {
+//    return view('welcome');
+//});
 
 Route::get('/', function() {
     return view('index');
@@ -39,4 +39,8 @@ Route::get('/project', function() {
 
 Route::get('/ending', function() {
     return view('ending');
+});
+
+Route::get('/project_input', function() {
+    return view('project_input');
 });

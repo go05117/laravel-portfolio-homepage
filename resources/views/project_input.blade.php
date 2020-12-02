@@ -1,24 +1,6 @@
 <!DOCTYPE html>
 <html lang="zxx">
-<?php
-    class db_info {
-        const db_url = "localhost";
-        const user_id = "root";
-        const passwd = "autoset";
-        const db = "laravel";
-    }
-    function DB() {
-        // DBMS 연결
-        $db_conn = new mysqli(db_info::db_url, db_info::user_id, db_info::passwd, db_info::db);
-        // DBMS 연결 실패 여부 검사
-        if ($db_conn->connect_errno) {
-            echo "Failed to connect to the MySQL Server";
-            exit(-1);
-        }
-        return $db_conn;
-    }
-    $db_conn = DB();
-?>
+
 <head>
     <meta charset="UTF-8">
     <meta name="description" content="Staging Template">
@@ -73,49 +55,18 @@
                 <div>
                     <div class="box">
                         <div class="image fit">
-                            <img src="images/pic02.jpg" alt="adsfasd" />
+                            <img src="../../public/images/pic02.jpg" alt="adsfasd" />
                         </div>
                         <div class="content">
                             <header class="align-center">
-                                <p>maked Rhythm Game by Java when i'm Student.</p>
-                                <h2>Rhythm Game</h2>
+                                <p>maecenas sapien feugiat ex purus</p>
+                                <h2>Lorem ipsum dolor</h2>
                             </header>
                             <p> Cras aliquet urna ut sapien tincidunt, quis malesuada elit facilisis. Vestibulum sit amet tortor velit. Nam elementum nibh a libero pharetra elementum. Maecenas feugiat ex purus, quis volutpat lacus placerat malesuada.</p>
                         </div>
-                        <a href="" onClick="window.open('project_input', 'dd', 'width=400, height=430'); return false;">Read more</a>
                     </div>
                 </div>
 
-                <?php
-                $sql = "select * from project";
-
-                // query 실행 실패 시 출력
-                if (!($result = $db_conn->query($sql))) {
-                    echo "출력 실패";
-                    exit(-1);
-                }
-
-                while($row = $result->fetch_array()) {
-                    echo ("
-                <div>
-                    <div class='box'>
-                        <div class='image fit'>
-                            <img src='$row[photo]' alt='' />
-                        </div>
-                        <div class='content''>
-                            <header class='align-center'>
-                                <p>$row[comment]</p>
-                                <h2>$row[title]</h2>
-                            </header>
-                            <p>$row[article]</p>
-                        </div>
-                        <a href='' onClick=\"window.open('project_input', 'dd', 'width=400, height=430'); return false;\">Read more</a>
-                    </div>
-                </div>
-                ");
-                }
-                ?>
-                <button id="writing" onclick="window.open('project_input', 'dd', 'width=400, height=430'); return false;">글쓰기</button>
                 <div>
                     <div class="box">
                         <div class="image fit">
@@ -128,7 +79,6 @@
                             </header>
                             <p> Cras aliquet urna ut sapien tincidunt, quis malesuada elit facilisis. Vestibulum sit amet tortor velit. Nam elementum nibh a libero pharetra elementum. Maecenas feugiat ex purus, quis volutpat lacus placerat malesuada.</p>
                         </div>
-
                     </div>
                 </div>
 
