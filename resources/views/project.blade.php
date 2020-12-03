@@ -1,24 +1,5 @@
 <!DOCTYPE html>
 <html lang="zxx">
-<?php
-    class db_info {
-        const db_url = "localhost";
-        const user_id = "root";
-        const passwd = "autoset";
-        const db = "laravel";
-    }
-    function DB() {
-        // DBMS 연결
-        $db_conn = new mysqli(db_info::db_url, db_info::user_id, db_info::passwd, db_info::db);
-        // DBMS 연결 실패 여부 검사
-        if ($db_conn->connect_errno) {
-            echo "Failed to connect to the MySQL Server";
-            exit(-1);
-        }
-        return $db_conn;
-    }
-    $db_conn = DB();
-?>
 <head>
     <meta charset="UTF-8">
     <meta name="description" content="Staging Template">
@@ -57,6 +38,9 @@
                     <li><a class="navi_active" href="project">Project</a></li>
                     <li><a href="./ending">Ending</a></li>
                 </ul>
+                <div id = "plus">
+                    <button type="button" class="btn btn-success" onclick="window.open('project_input', 'dd', 'width=400, height=430'); return false;">Create</button>
+                </div>
             </nav>
         </div>
     </header>
@@ -70,83 +54,40 @@
     <section id="one" class="wrapper style2">
         <div class="inner">
             <div class="grid-style">
-                <div>
-                    <div class="box">
-                        <div class="image fit">
-                            <img src="images/pic02.jpg" alt="adsfasd" />
-                        </div>
-                        <div class="content">
-                            <header class="align-center">
-                                <p>maked Rhythm Game by Java when i'm Student.</p>
-                                <h2>Rhythm Game</h2>
-                            </header>
-                            <p> Cras aliquet urna ut sapien tincidunt, quis malesuada elit facilisis. Vestibulum sit amet tortor velit. Nam elementum nibh a libero pharetra elementum. Maecenas feugiat ex purus, quis volutpat lacus placerat malesuada.</p>
-                        </div>
-                        <a href="" onClick="window.open('project_input', 'dd', 'width=400, height=430'); return false;">Read more</a>
-                    </div>
-                </div>
+{{--                <div class = 'outbox'>--}}
+{{--                    <div class="box">--}}
+{{--                        <div class="image fit">--}}
+{{--                            <img src="images/pic02.jpg" alt="adsfasd" />--}}
+{{--                        </div>--}}
+{{--                        <div class="content">--}}
+{{--                            <header class="align-center">--}}
+{{--                                <p>maked Rhythm Game by Java when i'm Student.</p>--}}
+{{--                                <h2>Rhythm Game</h2>--}}
+{{--                            </header>--}}
+{{--                            <p> Cras aliquet urna ut sapien tincidunt, quis malesuada elit facilisis. Vestibulum sit amet tortor velit. Nam elementum nibh a libero pharetra elementum. Maecenas feugiat ex purus, quis volutpat lacus placerat malesuada.</p>--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
+{{--                    <a href="" onClick="window.open('project_input', 'dd', 'width=400, height=430'); return false;">Read more</a>--}}
+{{--                </div>--}}
 
-                <?php
-                $sql = "select * from project";
-
-                // query 실행 실패 시 출력
-                if (!($result = $db_conn->query($sql))) {
-                    echo "출력 실패";
-                    exit(-1);
-                }
-
-                while($row = $result->fetch_array()) {
-                    echo ("
-                <div>
-                    <div class='box'>
-                        <div class='image fit'>
-                            <img src='$row[photo]' alt='' />
-                        </div>
-                        <div class='content''>
+                @for ($i = 0; $i < sizeof($id); $i++)
+                    <div class = 'outbox'>
+                        <div class='box'>
+                            <div class='image fit'>
+                                <img src='{{ $photo[$i] }}' alt='' />
+                            </div>
+                            <div class='content'>
                             <header class='align-center'>
-                                <p>$row[comment]</p>
-                                <h2>$row[title]</h2>
+                                <p>{{ $comment[$i] }}</p>
+                                <h2>{{ $title[$i] }}</h2>
                             </header>
-                            <p>$row[article]</p>
+                                <p>{{ $article[$i] }}</p>
+                            </div>
                         </div>
-                        <a href='' onClick=\"window.open('project_input', 'dd', 'width=400, height=430'); return false;\">Read more</a>
+{{--                        <a href='' onClick="window.open('project_result', 'dd', 'width=400, height=430'); return false;">Read more</a>--}}
+                        <Button class = "btn btn-success" onClick="location.href='{{ $git[$i] }}'">Read more</Button>
                     </div>
-                </div>
-                ");
-                }
-                ?>
-                <button id="writing" onclick="window.open('project_input', 'dd', 'width=400, height=430'); return false;">글쓰기</button>
-                <div>
-                    <div class="box">
-                        <div class="image fit">
-                            <img src="images/pic03.jpg" alt="" />
-                        </div>
-                        <div class="content">
-                            <header class="align-center">
-                                <p>mattis elementum sapien pretium tellus</p>
-                                <h2>Vestibulum sit amet</h2>
-                            </header>
-                            <p> Cras aliquet urna ut sapien tincidunt, quis malesuada elit facilisis. Vestibulum sit amet tortor velit. Nam elementum nibh a libero pharetra elementum. Maecenas feugiat ex purus, quis volutpat lacus placerat malesuada.</p>
-                        </div>
-
-                    </div>
-                </div>
-
-                <div>
-                    <div class="box">
-                        <div class="image fit">
-                            <img src="images/pic03.jpg" alt="" />
-                        </div>
-                        <div class="content">
-                            <header class="align-center">
-                                <p>mattis elementum sapien pretium tellus</p>
-                                <h2>Vestibulum sit amet</h2>
-                            </header>
-                            <p> Cras aliquet urna ut sapien tincidunt, quis malesuada elit facilisis. Vestibulum sit amet tortor velit. Nam elementum nibh a libero pharetra elementum. Maecenas feugiat ex purus, quis volutpat lacus placerat malesuada.</p>
-                        </div>
-                    </div>
-                </div>
-
+                @endfor
             </div>
         </div>
     </section>

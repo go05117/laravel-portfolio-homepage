@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="zxx">
-
 <head>
     <meta charset="UTF-8">
     <meta name="description" content="Staging Template">
@@ -25,84 +24,23 @@
 </head>
 
 <body>
-<div id = "project_background">
-    <!-- Offcanvas Menu End -->
-
-    <!-- Header Section Begin -->
-    <header class="header">
-        <div class="col-lg-6">
-            <nav class="header__menu mobile-menu">
-                <ul>
-                    <li><a href="./">Main</a></li>
-                    <li><a href="./intro">Intro</a></li>
-                    <li><a href="./activity">Activity</a></li>
-                    <li><a class="navi_active" href="project">Project</a></li>
-                    <li><a href="./ending">Ending</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
-    <!-- Header Section End -->
-
-    <div class="project_title">
-        <h1>MyProject</h1>
-        <hr>
-    </div>
-    <!-- About Section Begin -->
-    <section id="one" class="wrapper style2">
-        <div class="inner">
-            <div class="grid-style">
-                <div>
-                    <div class="box">
-                        <div class="image fit">
-                            <img src="../../public/images/pic02.jpg" alt="adsfasd" />
-                        </div>
-                        <div class="content">
-                            <header class="align-center">
-                                <p>maecenas sapien feugiat ex purus</p>
-                                <h2>Lorem ipsum dolor</h2>
-                            </header>
-                            <p> Cras aliquet urna ut sapien tincidunt, quis malesuada elit facilisis. Vestibulum sit amet tortor velit. Nam elementum nibh a libero pharetra elementum. Maecenas feugiat ex purus, quis volutpat lacus placerat malesuada.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div>
-                    <div class="box">
-                        <div class="image fit">
-                            <img src="images/pic03.jpg" alt="" />
-                        </div>
-                        <div class="content">
-                            <header class="align-center">
-                                <p>mattis elementum sapien pretium tellus</p>
-                                <h2>Vestibulum sit amet</h2>
-                            </header>
-                            <p> Cras aliquet urna ut sapien tincidunt, quis malesuada elit facilisis. Vestibulum sit amet tortor velit. Nam elementum nibh a libero pharetra elementum. Maecenas feugiat ex purus, quis volutpat lacus placerat malesuada.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div>
-                    <div class="box">
-                        <div class="image fit">
-                            <img src="images/pic03.jpg" alt="" />
-                        </div>
-                        <div class="content">
-                            <header class="align-center">
-                                <p>mattis elementum sapien pretium tellus</p>
-                                <h2>Vestibulum sit amet</h2>
-                            </header>
-                            <p> Cras aliquet urna ut sapien tincidunt, quis malesuada elit facilisis. Vestibulum sit amet tortor velit. Nam elementum nibh a libero pharetra elementum. Maecenas feugiat ex purus, quis volutpat lacus placerat malesuada.</p>
-                        </div>
-                    </div>
-                </div>
-
+<div id = "blank_background">
+    <form method="get" action="project2">
+        {{ csrf_field() }}
+        <fieldset>
+            <div class = "input_show">
+                <label>Title : </label><input class="input_anything" style="margin-left: 60px" type="text" name="title" placeholder="Project title"><br>
+                <label>Comment : </label><input class="input_anything" style="margin-left: 11px" type="text" name="comment" placeholder="Project comment"><br>
+                <label>Image : </label><input class="input_anything" style="margin-left: 40px" type="text" name="password" placeholder="images/ image Path"><br>
+                <label>Git : </label><input class="input_anything" style="margin-left: 70px" type="text" name="git" placeholder="Project git"><br>
+                <label>Password : </label><input class="input_anything" style="margin-left: 15px" type="text" name="password" placeholder="Password"><br>
             </div>
-        </div>
-    </section>
-    <!-- Footer Section Begin -->
-    <div class = "project_fillLast">
-    </div>
+            <div class = "input_article">
+                <textarea class = "article_writer" type="text" name="article" placeholder="Project article"></textarea><br>
+                <input class="btn btn-primary input_submit" type="submit" class = 'btn' name="btn_input" value="저장">
+            </div>
+        </fieldset>
+    </form>
 </div>
 </body>
 
