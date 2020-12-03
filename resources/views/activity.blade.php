@@ -54,7 +54,7 @@
     <section id="one" class="wrapper style2">
         <div class="inner">
             <div class="grid-style">
-                @for ($i = 0; $i < sizeof($id); $i++)
+                @for ($i = sizeof($id)-1; $i >= 0; $i--)
                     <div class = 'outbox'>
                         <div class='box'>
                             <div class='image fit'>
@@ -62,10 +62,10 @@
                             </div>
                             <div class='content'>
                                 <header class='align-center'>
-                                    <p style="color: white">{{ $comment[$i] }}</p>
+                                    <p>{{ $comment[$i] }}</p>
                                     <h2>{{ $title[$i] }}</h2>
                                 </header>
-                                <p style="color: white">{{ $article[$i] }}</p>
+                                <pre><p>{{ $article[$i] }}</p></pre>
                             </div>
                         </div>
                         {{--                        <a href='' onClick="window.open('project_result', 'dd', 'width=400, height=430'); return false;">Read more</a>--}}
@@ -80,5 +80,4 @@
     </div>
 </div>
 </body>
-
 </html>

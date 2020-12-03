@@ -100,8 +100,9 @@ Route::post('/project_create', function(Request $request) {
         );
         echo "<script>alert('정상적으로 입력되었습니다.')</script>";
     }
-    else
+    else {
         echo "<script>alert('잘못된 비밀번호 입니다.')</script>";
+    }
 });
 
 // 프로젝트 페이지 베이스

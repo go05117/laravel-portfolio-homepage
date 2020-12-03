@@ -65,7 +65,7 @@
                                 <p>{{ $comment[$i] }}</p>
                                 <h2>{{ $title[$i] }}</h2>
                             </header>
-                                <p>{{ $article[$i] }}</p>
+                                <pre><p>{{ $article[$i] }}</p></pre>
                             </div>
                         </div>
 {{--                        <a href='' onClick="window.open('project_result', 'dd', 'width=400, height=430'); return false;">Read more</a>--}}
