@@ -371,6 +371,11 @@ ol {
     width: 100%;
 }
 
+.activity_fillLast {
+    background-image: url("img/activity.png");
+    width: 100%;
+    height: 30px
+}
 .project_fillLast {
     background-color: #B7D8CF;
     width: 100%;

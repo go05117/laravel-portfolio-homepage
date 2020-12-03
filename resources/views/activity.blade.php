@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="zxx">
-
 <head>
     <meta charset="UTF-8">
     <meta name="description" content="Staging Template">
@@ -25,49 +24,60 @@
 </head>
 
 <body>
-<div id = "main_background">
-<!-- Offcanvas Menu End -->
+<div id = "activity_background">
+    <!-- Offcanvas Menu End -->
 
-<!-- Header Section Begin -->
-<header class="header">
-    <div class="col-lg-6">
-        <nav class="header__menu mobile-menu">
-            <ul>
-                <li><a href="./">Main</a></li>
-                <li><a href="./intro">Intro</a></li>
-                <li><a class="navi_active" href="./activity">Activity</a></li>
-                <li><a href="project">Project</a></li>
-                <li><a href="./ending">Ending</a></li>
-            </ul>
-        </nav>
-    </div>
-</header>
-<!-- Header Section End -->
-
-
-
-<!-- About Section Begin -->
-<section class="about spad">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-6">
-                <div class="about__text main_box">
-                    <div class="section-title">
-                        <span>Intro</span>
-                        <h1>Shin<br>DongHyub<br>Portfolio</h1>
-                    </div>
-                    <div class="about__para__text main_about_text">
-                        <p>안녕하세요<br>꿈많은 개발자 신동협입니다.</p>
-                    </div>
+    <!-- Header Section Begin -->
+    <header class="header">
+        <div class="col-lg-6">
+            <nav class="header__menu mobile-menu">
+                <ul>
+                    <li><a href="./">Main</a></li>
+                    <li><a href="./intro">Intro</a></li>
+                    <li><a class="navi_active" href="./activity">Activity</a></li>
+                    <li><a href="project">Project</a></li>
+                    <li><a href="./ending">Ending</a></li>
+                </ul>
+                <div id = "plus">
+                    <button type="button" class="btn btn-success" onclick="window.open('project_input', 'dd', 'width=400, height=430'); return false;">Create</button>
                 </div>
+            </nav>
+        </div>
+    </header>
+    <!-- Header Section End -->
+
+    <div class="project_title">
+        <h1>MyActivity</h1>
+        <hr>
+    </div>
+    <!-- About Section Begin -->
+    <section id="one" class="wrapper style2">
+        <div class="inner">
+            <div class="grid-style">
+                @for ($i = 0; $i < sizeof($id); $i++)
+                    <div class = 'outbox'>
+                        <div class='box'>
+                            <div class='image fit'>
+                                <img src='{{ $photo[$i] }}' alt='' />
+                            </div>
+                            <div class='content'>
+                                <header class='align-center'>
+                                    <p style="color: white">{{ $comment[$i] }}</p>
+                                    <h2>{{ $title[$i] }}</h2>
+                                </header>
+                                <p style="color: white">{{ $article[$i] }}</p>
+                            </div>
+                        </div>
+                        {{--                        <a href='' onClick="window.open('project_result', 'dd', 'width=400, height=430'); return false;">Read more</a>--}}
+                        <Button class = "btn btn-success" onClick="location.href='{{ $git[$i] }}'">Read more</Button>
+                    </div>
+                @endfor
             </div>
         </div>
+    </section>
+    <!-- Footer Section Begin -->
+    <div class = "activity_fillLast">
     </div>
-</section>
-
-<!-- Footer Section Begin -->
-<footer>
-</footer>
 </div>
 </body>
 

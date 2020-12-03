@@ -54,23 +54,7 @@
     <section id="one" class="wrapper style2">
         <div class="inner">
             <div class="grid-style">
-{{--                <div class = 'outbox'>--}}
-{{--                    <div class="box">--}}
-{{--                        <div class="image fit">--}}
-{{--                            <img src="images/pic02.jpg" alt="adsfasd" />--}}
-{{--                        </div>--}}
-{{--                        <div class="content">--}}
-{{--                            <header class="align-center">--}}
-{{--                                <p>maked Rhythm Game by Java when i'm Student.</p>--}}
-{{--                                <h2>Rhythm Game</h2>--}}
-{{--                            </header>--}}
-{{--                            <p> Cras aliquet urna ut sapien tincidunt, quis malesuada elit facilisis. Vestibulum sit amet tortor velit. Nam elementum nibh a libero pharetra elementum. Maecenas feugiat ex purus, quis volutpat lacus placerat malesuada.</p>--}}
-{{--                        </div>--}}
-{{--                    </div>--}}
-{{--                    <a href="" onClick="window.open('project_input', 'dd', 'width=400, height=430'); return false;">Read more</a>--}}
-{{--                </div>--}}
-
-                @for ($i = 0; $i < sizeof($id); $i++)
+                @for ($i = sizeof($id)-1; $i >= 0; $i--)
                     <div class = 'outbox'>
                         <div class='box'>
                             <div class='image fit'>
@@ -96,5 +80,15 @@
     </div>
 </div>
 </body>
-
 </html>
+
+{{--<form method="post" action="project_result">--}}
+{{--    @csrf--}}
+{{--    <input type="hidden" name="id" value="{{ $id[$i] }}">--}}
+{{--    <input type="hidden" name="title" value="{{ $title[$i] }}">--}}
+{{--    <input type="hidden" name="photo" value="{{ $photo[$i] }}">--}}
+{{--    <input type="hidden" name="comment" value="{{ $comment[$i] }}">--}}
+{{--    <input type="hidden" name="git" value="{{ $git[$i] }}">--}}
+{{--    <textarea type="hidden" name="article" value="{{ $article[$i] }}"></textarea>--}}
+{{--    <input class="btn btn-primary input_submit" type="submit" class = 'btn' name="btn_input" value="Read more">--}}
+{{--</form>--}}

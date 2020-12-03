@@ -25,13 +25,13 @@
 
 <body>
 <div id = "blank_background">
-    <form method="get" action="project2">
-        {{ csrf_field() }}
+    <form method="post" action="project_create">
+        @csrf
         <fieldset>
             <div class = "input_show">
                 <label>Title : </label><input class="input_anything" style="margin-left: 60px" type="text" name="title" placeholder="Project title"><br>
                 <label>Comment : </label><input class="input_anything" style="margin-left: 11px" type="text" name="comment" placeholder="Project comment"><br>
-                <label>Image : </label><input class="input_anything" style="margin-left: 40px" type="text" name="password" placeholder="images/ image Path"><br>
+                <label>Image : </label><input class="input_anything" style="margin-left: 40px" type="text" name="photo" placeholder="images/ image Path"><br>
                 <label>Git : </label><input class="input_anything" style="margin-left: 70px" type="text" name="git" placeholder="Project git"><br>
                 <label>Password : </label><input class="input_anything" style="margin-left: 15px" type="text" name="password" placeholder="Password"><br>
             </div>
