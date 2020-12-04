@@ -3079,6 +3079,10 @@ a:focus {
 .box .image.fit {
     margin: 0;
     border-radius: 0;
+    width: auto;
+    height: auto;
+    max-width: 600px;
+    max-height: 780px;
 }
 
 .box .image.fit img {

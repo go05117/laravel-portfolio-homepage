@@ -25,7 +25,7 @@
 
 <body>
 <div id = "blank_background">
-    <form method="post" action="avtivity_create">
+    <form method="post" action="activity_create">
         @csrf
         <fieldset>
             <div class = "input_show">

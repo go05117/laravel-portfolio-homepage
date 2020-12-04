@@ -39,7 +39,7 @@
                     <li><a href="./ending">Ending</a></li>
                 </ul>
                 <div id = "plus">
-                    <button type="button" class="btn btn-success" onclick="window.open('project_input', 'dd', 'width=400, height=430'); return false;">Create</button>
+                    <button type="button" class="btn btn-success" onclick="window.open('activity_input', 'dd', 'width=400, height=430'); return false;">Create</button>
                 </div>
             </nav>
         </div>
