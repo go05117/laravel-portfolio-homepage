@@ -45,57 +45,7 @@ Route::get('/ending', function() {
 });
 
 // activity 페이지 베이스
-Route::get('/activity', function() {
-    $temp = 0;
-
-    $query = DB::table('activity')->pluck('title');
-    foreach ($query as $value) {
-        $titles[$temp] = $value;
-        $temp++;
-    }
-
-    $temp = 0;
-    $query = DB::table('activity')->pluck('id');
-    foreach ($query as $value) {
-        $ids[$temp] = $value;
-        $temp++;
-    }
-
-    $temp = 0;
-    $query = DB::table('activity')->pluck('comment');
-    foreach ($query as $value) {
-        $comments[$temp] = $value;
-        $temp++;
-    }
-
-    $temp = 0;
-    $query = DB::table('activity')->pluck('article');
-    foreach ($query as $value) {
-        $articles[$temp] = $value;
-        $temp++;
-    }
-
-    $temp = 0;
-    $query = DB::table('activity')->pluck('git');
-    foreach ($query as $value) {
-        $gits[$temp] = $value;
-        $temp++;
-    }
-
-    $temp = 0;
-    $query = DB::table('activity')->pluck('photo');
-    foreach ($query as $value) {
-        $photos[$temp] = $value;
-        $temp++;
-    }
-
-    return view('activity')->with('id', $ids)
-        ->with('title', $titles)
-        ->with('comment', $comments)
-        ->with('article', $articles)
-        ->with('git', $gits)
-        ->with('photo', $photos);
-});
+Route::get('/activity', 'ActivityController@index');
 
 // activity 글 생성
 Route::post('/activity_create', function(Request $request) {
@@ -295,8 +245,7 @@ Route::get('/project_modify_page', function(Request $request) {
 
 // 프로젝트 삭제 페이지
 Route::get('/project_delete_page', function(Request $request) {
-    $id = $request->id;
-    return view('project_delete_page')->with('id', $id);
+    return view('project_delete_page')->with('id', $request->id);
 });
 
 // activity 입력 페이지
@@ -348,6 +297,5 @@ Route::get('/activity_modify_page', function(Request $request) {
 
 // activity 삭제 페이지
 Route::get('/activity_delete_page', function(Request $request) {
-    $id = $request->id;
-    return view('activity_delete_page')->with('id', $id);
+    return view('activity_delete_page')->with('id', $request->id);
 });
