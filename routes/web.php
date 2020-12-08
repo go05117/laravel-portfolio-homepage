@@ -131,6 +131,23 @@ Route::post('/project_create', function(Request $request) {
     return "<script>window.close()</script>";
 });
 
+Route::post('/project_modify', function(Request $request) {
+    if ($request->password == password()) {
+        DB::table('project')->where('id', '=', $request->id)->update(
+            ['title' => $request->title,
+                'photo' => $request->photo,
+                'comment' => $request->comment,
+                'git' => $request->git,
+                'article' => $request->article]
+        );
+        echo "<script>alert('정상적으로 수정되었습니다.')</script>";
+    }
+    else {
+        echo "<script>alert('잘못된 비밀번호 입니다.')</script>";
+    }
+    return "<script>window.close()</script>";
+});
+
 Route::post('/project_delete', function(Request $request) {
     if ($request->password == password()) {
         DB::table('project')->where('id', '=', $request->id)->delete();
@@ -201,8 +218,45 @@ Route::get('/project_input', function() {
 });
 
 // 프로젝트 수정 페이지
-Route::get('/project_modify_page', function() {
-    return view('project_modify_page');
+Route::get('/project_modify_page', function(Request $request) {
+    $values = [];
+    $temp = 0;
+    $query = DB::table('project')->where('id', '=', $request->id)->pluck('title');
+    foreach ($query as $value) {
+        $values[0] = $value;
+        $temp++;
+    }
+
+    $query = DB::table('project')->where('id', '=', $request->id)->pluck('comment');
+    foreach ($query as $value) {
+        $values[1] = $value;
+        $temp++;
+    }
+
+    $query = DB::table('project')->where('id', '=', $request->id)->pluck('article');
+    foreach ($query as $value) {
+        $values[2] = $value;
+        $temp++;
+    }
+
+    $query = DB::table('project')->where('id', '=', $request->id)->pluck('git');
+    foreach ($query as $value) {
+        $values[3] = $value;
+        $temp++;
+    }
+
+    $query = DB::table('project')->where('id', '=', $request->id)->pluck('photo');
+    foreach ($query as $value) {
+        $values[4] = $value;
+        $temp++;
+    }
+
+    return view('project_modify_page')->with('id', $request->id)
+                                            ->with('title', $values[0])
+                                            ->with('comment', $values[1])
+                                            ->with('article', $values[2])
+                                            ->with('git', $values[3])
+                                            ->with('photo', $values[4]);
 });
 
 // 프로젝트 삭제 페이지
@@ -217,11 +271,17 @@ Route::get('/activity_input', function() {
 });
 
 // activity 수정 페이지
-Route::get('/activity_modify_page', function() {
-    return view('activity_modify_page');
+Route::get('/activity_modify_page', function(Request $request) {
+
+    return view('activity_modify_page')->with('id', $request->id)
+                                            ->with('title', $request->title)
+                                            ->with('comment', $request->comment)
+                                            ->with('article', $request->article)
+                                            ->with('git', $request->git)
+                                            ->with('photo', $request->photo);
 });
 
 // activity 삭제 페이지
-Route::get('/activity_delete_page', function() {
+Route::get('/activity_delete_page', function(Request $request) {
     return view('activity_delete_page');
 });
