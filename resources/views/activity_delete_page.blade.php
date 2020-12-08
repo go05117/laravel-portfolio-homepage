@@ -25,24 +25,19 @@
 
 <body>
 <div id = "blank_background">
-    <form method="post" action="project_modify">
+    <div class="what-do"><h3>정말로 삭제하시겠습니까?</h3></div>
+    <form method="post" action="activity_delete">
         @csrf
         <fieldset>
             <div class = "input_show">
                 <input type="hidden" name="id" value="{{ $id }}">
-                <label>Title : </label><input class="input_anything" style="margin-left: 60px" type="text" name="title" value="{{ $title }}"><br>
-                <label>Comment : </label><input class="input_anything" style="margin-left: 11px" type="text" name="comment" value="{{ $comment }}"><br>
-                <label>Image : </label><input class="input_anything" style="margin-left: 40px" type="text" name="photo" value="{{ $photo }}"><br>
-                <label>Git : </label><input class="input_anything" style="margin-left: 70px" type="text" name="git" value="{{ $git }}"><br>
                 <label>Password : </label><input class="input_anything" style="margin-left: 15px" type="text" name="password" placeholder="Password"><br>
             </div>
             <div class = "input_article">
-                <textarea class = "article_writer" type="text" name="article">{{ $article }}</textarea><br>
-                <input class="btn btn-primary input_submit" type="submit" class = 'btn' name="btn_input" value="수정">
+                <input class="btn btn-danger input_submit" type="submit" class = 'btn' name="btn_input" value="삭제">
             </div>
         </fieldset>
     </form>
 </div>
 </body>
-
 </html>

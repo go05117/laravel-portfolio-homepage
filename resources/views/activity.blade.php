@@ -70,6 +70,12 @@
                         </div>
                         {{--                        <a href='' onClick="window.open('project_result', 'dd', 'width=400, height=430'); return false;">Read more</a>--}}
                         <Button class = "btn btn-success" onClick="location.href='{{ $git[$i] }}'">Read more</Button>
+                        <span class="modify">
+                            <Button type="button" class="btn btn-primary" value="Modify" onclick="window.open('activity_modify_page?id={{ $id[$i] }}', 'dd', 'width=400, height=430'); return false;">Modity</Button>
+                        </span>
+                        <span class="delete">
+                            <Button type="button" class="btn btn-danger" value="Delete" onclick="window.open('activity_delete_page?id={{ $id[$i] }}', 'dd', 'width=400, height=430'); return false;">Delete</Button>
+                        </span>
                     </div>
                 @endfor
             </div>

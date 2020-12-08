@@ -25,11 +25,11 @@
 
 <body>
 <div id = "blank_background">
-    <form method="post" action="project_modify">
+    <form method="post" action="activity_modify">
         @csrf
         <fieldset>
             <div class = "input_show">
-                <input type="hidden" name="id" value="{{ $id }}">
+                <input type="hidden" name="id" value="{{ $id[0] }}">
                 <label>Title : </label><input class="input_anything" style="margin-left: 60px" type="text" name="title" value="{{ $title }}"><br>
                 <label>Comment : </label><input class="input_anything" style="margin-left: 11px" type="text" name="comment" value="{{ $comment }}"><br>
                 <label>Image : </label><input class="input_anything" style="margin-left: 40px" type="text" name="photo" value="{{ $photo }}"><br>
