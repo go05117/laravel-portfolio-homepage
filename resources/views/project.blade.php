@@ -70,10 +70,14 @@
                         </div>
 {{--                        <a href='' onClick="window.open('project_result', 'dd', 'width=400, height=430'); return false;">Read more</a>--}}
                         <Button class = "btn btn-success" onClick="location.href='{{ $git[$i] }}'">Read more</Button>
-                        <input type="button" class="btn btn-primary modify" value="Modify"
+                        <span class="modify">
+                            <Button type="button" class="btn btn-primary" value="Modify"
                                onclick="window.open('project_modify_page?id={{ $id[$i] }}&photo={{ $photo[$i] }}&comment={{ $comment[$i] }}&title={{ $title[$i] }}&article={{ $article[$i] }}&git={{ $git[$i] }}',
-                                   'dd', 'width=400, height=430'); return false;">
-                        <input type="button" class="btn btn-danger delete" value="Delete" onclick="window.open('project_delete_page?id={{ $id[$i] }}', 'dd', 'width=400, height=430'); return false;">
+                                   'dd', 'width=400, height=430'); return false;">Modity</Button>
+                        </span>
+                        <span class="delete">
+                            <Button type="button" class="btn btn-danger" value="Delete" onclick="window.open('project_delete_page?id={{ $id[$i] }}', 'dd', 'width=400, height=430'); return false;">Delete</Button>
+                        </span>
                     </div>
                 @endfor
             </div>

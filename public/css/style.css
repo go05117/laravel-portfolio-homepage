@@ -3173,11 +3173,12 @@ a:focus {
 }
 
 .modify {
-    margin-left: 430px;
+    margin-left: 130px;
     margin-top: -187px;
 }
 
 .delete {
-    margin-left: 12px;
+    z-index: 400;
+    margin-left: 95px;
     margin-top: -187px;
 }
