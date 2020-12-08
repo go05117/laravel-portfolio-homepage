@@ -70,6 +70,10 @@
                         </div>
 {{--                        <a href='' onClick="window.open('project_result', 'dd', 'width=400, height=430'); return false;">Read more</a>--}}
                         <Button class = "btn btn-success" onClick="location.href='{{ $git[$i] }}'">Read more</Button>
+                        <input type="button" class="btn btn-primary modify" value="Modify"
+                               onclick="window.open('project_modify_page?id={{ $id[$i] }}&photo={{ $photo[$i] }}&comment={{ $comment[$i] }}&title={{ $title[$i] }}&article={{ $article[$i] }}&git={{ $git[$i] }}',
+                                   'dd', 'width=400, height=430'); return false;">
+                        <input type="button" class="btn btn-danger delete" value="Delete" onclick="window.open('project_delete_page?id={{ $id[$i] }}', 'dd', 'width=400, height=430'); return false;">
                     </div>
                 @endfor
             </div>
@@ -81,14 +85,3 @@
 </div>
 </body>
 </html>
-
-{{--<form method="post" action="project_result">--}}
-{{--    @csrf--}}
-{{--    <input type="hidden" name="id" value="{{ $id[$i] }}">--}}
-{{--    <input type="hidden" name="title" value="{{ $title[$i] }}">--}}
-{{--    <input type="hidden" name="photo" value="{{ $photo[$i] }}">--}}
-{{--    <input type="hidden" name="comment" value="{{ $comment[$i] }}">--}}
-{{--    <input type="hidden" name="git" value="{{ $git[$i] }}">--}}
-{{--    <textarea type="hidden" name="article" value="{{ $article[$i] }}"></textarea>--}}
-{{--    <input class="btn btn-primary input_submit" type="submit" class = 'btn' name="btn_input" value="Read more">--}}
-{{--</form>--}}

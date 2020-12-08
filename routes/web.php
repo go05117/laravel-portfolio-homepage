@@ -24,6 +24,14 @@ use Psr\Http\Message\ServerRequestInterface;
 //    return view('welcome');
 //});
 
+function password() {
+    $query = DB::table('password')->pluck('password');
+    foreach ($query as $value) {
+        $temp = $value;
+    }
+    return $temp;
+}
+
 Route::get('/', function() {
     return view('index');
 });
@@ -90,7 +98,7 @@ Route::get('/activity', function() {
 });
 
 Route::post('/activity_create', function(Request $request) {
-    if ($request->password == '1q2w3e4r!') {
+    if ($request->password == password()) {
         DB::table('activity')->insert(
             ['title' => $request->title,
                 'photo' => $request->photo,
@@ -103,10 +111,11 @@ Route::post('/activity_create', function(Request $request) {
     else {
         echo "<script>alert('잘못된 비밀번호 입니다.')</script>";
     }
+    return "<script>window.close()</script>";
 });
 
 Route::post('/project_create', function(Request $request) {
-    if ($request->password == '1q2w3e4r!') {
+    if ($request->password == password()) {
         DB::table('project')->insert(
             ['title' => $request->title,
                 'photo' => $request->photo,
@@ -119,6 +128,18 @@ Route::post('/project_create', function(Request $request) {
     else {
         echo "<script>alert('잘못된 비밀번호 입니다.')</script>";
     }
+    return "<script>window.close()</script>";
+});
+
+Route::post('/project_delete', function(Request $request) {
+    if ($request->password == password()) {
+        DB::table('project')->where('id', '=', $request->id)->delete();
+        echo "<script>alert('정상적으로 삭제되었습니다.')</script>";
+    }
+    else {
+        echo "<script>alert('잘못된 비밀번호 입니다.')</script>";
+    }
+    return "<script>window.close()</script>";
 });
 
 // 프로젝트 페이지 베이스
@@ -179,7 +200,28 @@ Route::get('/project_input', function() {
     return view('project_input');
 });
 
+// 프로젝트 수정 페이지
+Route::get('/project_modify_page', function() {
+    return view('project_modify_page');
+});
+
+// 프로젝트 삭제 페이지
+Route::get('/project_delete_page', function(Request $request) {
+    $id = $request->id;
+    return view('project_delete_page')->with('id', $id);
+});
+
 // activity 입력 페이지
 Route::get('/activity_input', function() {
     return view('activity_input');
+});
+
+// activity 수정 페이지
+Route::get('/activity_modify_page', function() {
+    return view('activity_modify_page');
+});
+
+// activity 삭제 페이지
+Route::get('/activity_delete_page', function() {
+    return view('activity_delete_page');
 });

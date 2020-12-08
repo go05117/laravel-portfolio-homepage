@@ -3162,5 +3162,22 @@ a:focus {
 }
 
 .input_submit {
-    margin-left: 10px;
+    float: right;
+    margin-right: 10px;
+}
+
+.what-do {
+    padding-top: 10px;
+    padding-bottom: 5px;
+    text-align: center;
+}
+
+.modify {
+    margin-left: 430px;
+    margin-top: -187px;
+}
+
+.delete {
+    margin-left: 12px;
+    margin-top: -187px;
 }
