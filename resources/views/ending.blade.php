@@ -82,8 +82,7 @@
                             <div class="services__item">
                                 <img src="img/services/services-6.png" alt="">
                                 <h4>Our Vision</h4>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                                    labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco</p>
+                                <p>일본에 취업해서 재미있는 서비스를 개발하는 기획자가 되고 싶습니다.</p>
                             </div>
                         </div>
                     </div>
